@@ -1,9 +1,12 @@
 package it.uniroma3.siw.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student {
@@ -20,6 +23,12 @@ public class Student {
 	private String placeOfBirth;
 	
 	private String email;
+	
+	@OneToMany(mappedBy="student")
+	private List<Course> courses;
+	
+	@OneToOne 
+	private Company company;
 	
 	public Student() {}
 	

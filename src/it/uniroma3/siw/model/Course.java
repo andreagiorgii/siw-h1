@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Course {
@@ -19,6 +20,13 @@ public class Course {
 	private LocalDate dateFrom;
 	
 	private int months;
+	
+	
+	@ManyToOne
+	private Student student;
+	
+	@ManyToOne
+	private Teacher teacher;
 
 	public String getName() {
 		return name;
