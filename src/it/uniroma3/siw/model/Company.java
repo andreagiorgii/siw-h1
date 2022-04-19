@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Company {
@@ -14,13 +15,14 @@ public class Company {
 	
 	private String ragioneSociale;
 	
-	private Address address;
-	
 	private String phoneNumber;
 	
-	public Company(String ragione, Address address, String phone ) {
+	
+	@OneToOne 
+	private Address address;
+	
+	public Company(String ragione, String phone ) {
 		this.ragioneSociale = ragione;
-		this.address = address;
 		this.phoneNumber = phone;
 	}
 
@@ -32,13 +34,6 @@ public class Company {
 		this.ragioneSociale = ragioneSociale;
 	}
 
-	public Address getIndirizzo() {
-		return address;
-	}
-
-	public void setIndirizzo(Address indirizzo) {
-		this.address = indirizzo;
-	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;

@@ -1,9 +1,12 @@
 package it.uniroma3.siw.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Teacher {
@@ -18,6 +21,9 @@ public class Teacher {
 	private LocalDate dateOfBirth;
 	
 	private String placeOfBirth;
+	
+	@OneToMany(mappedBy="teacher",fetch=FetchType.EAGER)
+	private List<Course> courses;
 	
 	public Teacher() {}
 	
